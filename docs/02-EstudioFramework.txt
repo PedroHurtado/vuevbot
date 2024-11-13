@@ -1,0 +1,19 @@
+1. Template Sintax
+    1.1 interpolacion->
+        https://vuejs.org/guide/essentials/template-syntax
+    1.2 if
+        https://vuejs.org/guide/essentials/conditional.html
+    1.3 for
+        https://vuejs.org/guide/essentials/list.html
+    1.4 events
+        https://vuejs.org/guide/essentials/event-handling.html
+    1.5 pasar datos entre componentes
+        Los datos deben de fluir desde un component principal->secundario
+            Padre->Hijo()->Nietos,etc,etc
+            Hijo->Padre->Hermanos
+                obj,primitivas
+                html->slot
+2. Ciclo de vida
+3. Routing
+4. Http
+5. cli

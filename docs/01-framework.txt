@@ -1,0 +1,26 @@
+Angular, React, Vue
+
+React-Angular-Vue
+
+Svelte->https://svelte.dev/
+Qwik->https://qwik.dev/
+
+    SSR->Hidratacion
+        <script type="application/json">
+        </script>
+        JSON.parse(script.textContent)
+
+        El explorador tiene que recorer todo el arbol dom
+        y volver a crear instancias de los componetes
+
+        Resumability->descarga y compilacion del js necesario
+
+        https://qwik.dev/docs/concepts/resumable/
+
+Vue->html->js
+
+    browser->servidor
+                static->js,index.html,css
+                json->enpoint rest
+    SPA->navegacion-renderizado
+    renderizado de cliente

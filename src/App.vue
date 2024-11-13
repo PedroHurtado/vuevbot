@@ -1,47 +1,41 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script  lang="ts" setup>
+import { ref } from 'vue';
+import Calendar from './components/calendar/calendar.vue';
+const name ="Pedro"
+const user=undefined
+const data = ref([1,2,3,4,5,6])
+function handlerClick(){
+  const oldValue = data.value;
+  data.value.push(data.value.length+1)        //funcion en determinarios escenaridos
+  //data.value = [...data.value] // spread operator que cambia la dir de memoria
+  //data.value = structuredClone(data.value)
+
+  /*
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+    https://developer.mozilla.org/en-US/docs/Web/API/Window/structuredClone
+  */
+  //const newValue = data.value;
+  console.log(oldValue===data.value)
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <Calendar/>
+  <!--Interpolacion-->
+  <div> Hello {{name }}</div>
+  <!--if-->
+  <div v-if="user">
+    {{user}}
+  </div>
+  <div v-else>
+    <button>Login</button>
+  </div>
+  <!--for-->
+  <li v-for="item in data" :key="item">
+    {{ item }}
+  </li>
+  <!--eventos-->
+  <button @click="handlerClick()">Cambiar elemento 3 del array</button>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
