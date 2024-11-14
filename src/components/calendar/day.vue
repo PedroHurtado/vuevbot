@@ -1,11 +1,22 @@
 <script lang="ts" setup>
+
+
+
 const { day } = defineProps<{
   day: number;
 }>();
+
+const emit = defineEmits(["select-day"])
+
+function handlerClick(ev:Event){
+  ev.stopPropagation()
+  emit('select-day', day)
+}
+
 </script>
 
 <template>
-  <div class="day" :data-day="day">{{ day }}</div>
+  <div class="day" :data-day="day" @click="handlerClick($event)">{{ day }}</div>
 </template>
 
 <style scoped>

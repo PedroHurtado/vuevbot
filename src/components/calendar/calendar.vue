@@ -8,18 +8,23 @@ function* getDays() {
 }
 const days = [...getDays()];
 
-function handlerClick(ev:Event){
+/*function handlerClick(ev:Event){
   ev.stopPropagation()
   const node = (ev.composedPath() as HTMLElement[]).find(n=>n.dataset && 'day' in n.dataset)
   if(node){
     const {day} =node.dataset
     console.log(Number(day)) 
   }
+}*/
+
+function handlerClick(day:number ){
+  console.log(day)
 }
+
 </script>
 <template>
-  <div class="calendar" @click="handlerClick($event)">
-    <Day v-for="day in days" :key="day" :day="day"/>
+  <div class="calendar" >
+    <Day v-for="day in days" :key="day" :day="day" @select-day="handlerClick"/>
   </div>
 </template>
 <style scoped>
