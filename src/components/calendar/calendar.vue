@@ -1,34 +1,17 @@
 <script lang="ts" setup>
-import Day from "./day.vue";
-
-function* getDays() {
-  for (let i = 0; i < 31; i++) {
-    yield i + 1;
-  }
-}
-const days = [...getDays()];
-
-function handlerClick(ev:Event){
-  ev.stopPropagation()
-  const node = (ev.composedPath() as HTMLElement[]).find(n=>n.dataset && 'day' in n.dataset)
-  if(node){
-    const {day} =node.dataset
-    console.log(Number(day)) 
-  }
-}
-
-
-
+    import Grid from './grid.vue';
+    import Timer from './timer.vue';
 </script>
 <template>
-  <div class="calendar" @click="handlerClick($event)" >
-    <Day v-for="day in days" :key="day" :day="day"/>
-  </div>
+    <div class="calendar">        
+        <Timer/>
+        <Grid/>
+    </div>
 </template>
 <style scoped>
-.calendar {
-  display: grid;
-  grid-template-columns: repeat(7, 1.5rem);
-  gap: 0.5rem;
-}
+    .calendar{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 </style>
