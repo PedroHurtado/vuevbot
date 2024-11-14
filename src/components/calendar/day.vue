@@ -5,7 +5,7 @@ const { day } = defineProps<{
 </script>
 
 <template>
-  <div class="day">{{ day }}</div>
+  <div class="day" :data-day="day">{{ day }}</div>
 </template>
 
 <style scoped>
