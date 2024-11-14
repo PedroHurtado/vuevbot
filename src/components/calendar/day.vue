@@ -6,17 +6,10 @@ const { day } = defineProps<{
   day: number;
 }>();
 
-const emit = defineEmits(["select-day"])
-
-function handlerClick(ev:Event){
-  ev.stopPropagation()
-  emit('select-day', day)
-}
-
 </script>
 
 <template>
-  <div class="day" :data-day="day" @click="handlerClick($event)">{{ day }}</div>
+  <div class="day" :data-day="day">{{ day }}</div>
 </template>
 
 <style scoped>
