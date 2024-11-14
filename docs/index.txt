@@ -1,0 +1,14 @@
+1.slot->html->Principal->Secundario
+    slot->como elemento html (WebComponent)
+2.Template ref
+    https://developer.mozilla.org/es/docs/Web/HTML/Element/dialog
+    https://vuejs.org/guide/essentials/template-refs
+3.ref vs reactive
+4.Comunicar component   
+    1. Principal->Secundario->props
+    2. Secundario->Principal->callback
+
+    Observer
+    Pub/Sub
+
+    https://hackernoon.com/lang/es/observador-vs-pub-sub-patron-50d3b27f838c
