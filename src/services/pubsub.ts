@@ -1,4 +1,4 @@
-class PubSub<T> {
+export class PubSub<T> {
     suscriptors = new Map<string,[(data:T)=>void]>();
     
     emit(channel:string, data:T){

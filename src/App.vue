@@ -1,6 +1,10 @@
 <script  lang="ts" setup>
-import { ref } from 'vue';
+import { ref, provide } from 'vue';
 import Calendar from './components/calendar/calendar.vue';
+import PizzaList from './components/carrito/PizzaList.vue';
+import Carrito from './components/carrito/Carrito.vue';
+import type { Pizza } from './components/carrito/pizza';
+import { PubSub } from './services/pubsub';
 const name ="Pedro"
 const user=undefined
 const data = ref([1,2,3,4,5,6])
@@ -17,9 +21,13 @@ function handlerClick(){
   //const newValue = data.value;
   console.log(oldValue===data.value)
 }
+provide('pubsub', new PubSub<Pizza>())
+
 </script>
 
 <template>
+  <PizzaList/>
+  <Carrito/>
   <Calendar/>
   <!--Interpolacion-->
   <div> Hello {{name }}</div>
