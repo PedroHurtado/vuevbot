@@ -1,14 +1,13 @@
-class PubSub {
-    constructor(){
-        this.suscriptors = new Map();
-    } 
-    emit(channel, data){
+class PubSub<T> {
+    suscriptors = new Map<string,[(data:T)=>void]>();
+    
+    emit(channel:string, data:T){
         const channelSuscriptor = this.suscriptors.get(channel);
         if(channelSuscriptor){
-            channelSuscriptor.forEach(f=>f(data));
+            channelSuscriptor.forEach(f=>f(data))
         }
     }
-    on(channel, handler){
+    on(channel:string, handler:(data:T)=>void){
         
         let channelSuscriptor = this.suscriptors.get(channel);
         
@@ -21,9 +20,9 @@ class PubSub {
 
         return ()=>{
             const index = channelSuscriptor.indexOf(handler);
-            if(index >- 1){
-                channelSuscriptor.splice(index, 1);
-                if(channelSuscriptor.length === 0){
+            if(index>-1){
+                channelSuscriptor.splice(index, 1);                
+                if(!channelSuscriptor.length){
                     this.suscriptors.delete(channel);
                 }
             }
