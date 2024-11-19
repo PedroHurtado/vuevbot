@@ -5,6 +5,7 @@ import PizzaList from './components/carrito/PizzaList.vue';
 import Carrito from './components/carrito/Carrito.vue';
 import type { Pizza } from './components/carrito/pizza';
 import { PubSub } from './services/pubsub';
+
 const name ="Pedro"
 const user=undefined
 const data = ref([1,2,3,4,5,6])

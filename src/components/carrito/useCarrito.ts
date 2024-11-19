@@ -5,7 +5,7 @@ import { PubSub } from "@/services/pubsub";
 export function useCarrito() {
     let suscription:()=>void;
     const pizzas = ref<Pizza[]>([])
-    const price = computed(() => pizzas.value.map(p => p.price).reduce((acc, p) => acc + p, 0))
+    const price = computed(() => pizzas.value.reduce((acc, p) => acc + p.price, 0))
 
     const pubsub = inject<PubSub<Pizza>>('pubsub') as PubSub<Pizza>
     

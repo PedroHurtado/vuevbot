@@ -2,6 +2,7 @@
 import { inject } from 'vue';
 import type { Pizza } from './pizza';
 import { PubSub } from '@/services/pubsub';
+
 const pubsub:PubSub<Pizza> = inject<PubSub<Pizza>>('pubsub') as PubSub<Pizza>
 
 const pizzas:Array<Pizza> = [
@@ -30,13 +31,13 @@ function añadirAlCarrito(ev: Event) {
         const { id } = node.dataset;
         const pizza = pizzas.find(p => p.id === id) as Pizza;
         if (pizza) {            
-            pubsub.emit('carrito', pizza);
+            pubsub.emit('carrito', structuredClone(pizza));
             //document.dispatchEvent(createEvent(pizza))
         }
     }
 }
 
-function createEvent(pizza: any): CustomEvent {
+/*function createEvent(pizza: any): CustomEvent {
     return new CustomEvent(
         "add-carrito",
         {
@@ -45,7 +46,8 @@ function createEvent(pizza: any): CustomEvent {
             detail: structuredClone(pizza)
         }
     )
-}
+}*/
+
 </script>
 <template>
     <div class="list" @click="añadirAlCarrito($event)">
