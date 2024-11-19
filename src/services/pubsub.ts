@@ -29,3 +29,16 @@ class PubSub<T> {
         }
     }
 }
+/*
+const pubsub = new PubSub<number>()
+pubsub.emit('voiz',10)
+pubsub.on('voz',v=>console.log(v))*/
+
+/*
+ carrito->sus
+ list->pub
+ no vamos a depender del dom para comunicar componentes
+
+ la instancia del pubsub en la lista y en la carrito deben la misma
+ https://vuejs.org/guide/components/provide-inject
+*/
