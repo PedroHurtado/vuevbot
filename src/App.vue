@@ -28,13 +28,21 @@ function handlerClick() {
 }
 provide('pubsub', new PubSub<Pizza>())
 
+const activeDialog = ref('Home')
+const dialogs = {
+
+}
 function showDialog() {
   dialog.value.showModal()
+  //cambiar el ref
+  //activeDialog.value = ''
 }
 </script>
 
 <template>
-  <button @click="showDialog">Show Dialog</button>
+  <button @click="showDialog">Show Section1</button>
+  <button @click="showDialog">Show Section2</button>
+  <button @click="showDialog">Show Section3</button>
   <Dialog ref="dialog">
     <template #x>
     <section>
@@ -48,8 +56,11 @@ function showDialog() {
         </select>
       </p>
     </section>
+
+    <component is:dialogs[activeDialog]></component>
   </template>
   </Dialog>
+  
   <PizzaList />
 
   <Calendar />
