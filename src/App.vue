@@ -2,8 +2,12 @@
 import { ref, provide } from 'vue';
 import Calendar from './components/calendar/calendar.vue';
 import PizzaList from './components/carrito/PizzaList.vue';
+import Dialog from './components/dialog.vue';
 import type { Pizza } from './components/carrito/pizza';
 import { PubSub } from './services/pubsub';
+
+
+const dialog = ref();
 
 const name ="Pedro"
 const user=undefined
@@ -23,9 +27,14 @@ function handlerClick(){
 }
 provide('pubsub', new PubSub<Pizza>())
 
+function showDialog(){
+  dialog.value.showModal()
+}
 </script>
 
 <template>
+  <button @click="showDialog">Show Dialog</button>
+  <Dialog ref="dialog"/>
   <PizzaList/>
   
   <Calendar/>
