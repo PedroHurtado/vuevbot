@@ -31,22 +31,10 @@ function añadirAlCarrito(ev: Event) {
         const { id } = node.dataset;
         const pizza = pizzas.find(p => p.id === id) as Pizza;
         if (pizza) {            
-            pubsub.emit('carrito', structuredClone(pizza));
-            //document.dispatchEvent(createEvent(pizza))
+            pubsub.emit('carrito', structuredClone(pizza));            
         }
     }
 }
-
-/*function createEvent(pizza: any): CustomEvent {
-    return new CustomEvent(
-        "add-carrito",
-        {
-            bubbles: true,
-            composed: true,
-            detail: structuredClone(pizza)
-        }
-    )
-}*/
 
 </script>
 <template>

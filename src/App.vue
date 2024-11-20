@@ -2,7 +2,6 @@
 import { ref, provide } from 'vue';
 import Calendar from './components/calendar/calendar.vue';
 import PizzaList from './components/carrito/PizzaList.vue';
-import Carrito from './components/carrito/Carrito.vue';
 import type { Pizza } from './components/carrito/pizza';
 import { PubSub } from './services/pubsub';
 
@@ -28,7 +27,7 @@ provide('pubsub', new PubSub<Pizza>())
 
 <template>
   <PizzaList/>
-  <Carrito/>
+  
   <Calendar/>
   <!--Interpolacion-->
   <div> Hello {{name }}</div>
@@ -45,6 +44,8 @@ provide('pubsub', new PubSub<Pizza>())
   </li>
   <!--eventos-->
   <button @click="handlerClick()">Cambiar elemento 3 del array</button>
+
+
 </template>
 
 

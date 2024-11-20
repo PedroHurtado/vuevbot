@@ -1,17 +1,19 @@
 <script lang="ts" setup>
-    import Grid from './grid.vue';
-    import Timer from './timer.vue';
+import Carrito from '../carrito/Carrito.vue';
+import Grid from './grid.vue';
+import Timer from './timer.vue';
 </script>
 <template>
     <div class="calendar">        
-        <Timer/>
-        <Grid/>
+        <Timer />
+        <Carrito />
+        <Grid />
     </div>
 </template>
 <style scoped>
-    .calendar{
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+.calendar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
 </style>
