@@ -15,17 +15,7 @@ defineExpose({
 <template>
     <dialog ref="dialog">
         <form method="dialog">
-            <section>
-                <p>
-                    <label for="favAnimal">Favorite animal:</label>
-                    <select id="favAnimal">
-                        <option></option>
-                        <option>Brine shrimp</option>
-                        <option>Red panda</option>
-                        <option>Spider monkey</option>
-                    </select>
-                </p>
-            </section>
+            <slot name="x"></slot>            
             <menu>
                 <button id="cancel" type="reset">Cancel</button>
                 <button type="submit">Confirm</button>
