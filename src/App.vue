@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { ref, provide } from 'vue';
-import Calendar from './components/calendar/calendar.vue';
+import Calendar from '@/components/calendar/calendar.vue';
 import PizzaList from './components/carrito/PizzaList.vue';
 import Dialog from './components/dialog.vue';
 import type { Pizza } from './components/carrito/pizza';
-import { PubSub } from './services/pubsub';
+import { PubSub } from '@/services/pubsub';
 import './webcomponent'
 
 
