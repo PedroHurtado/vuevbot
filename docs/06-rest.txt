@@ -1,0 +1,127 @@
+const pizza = {
+    id,
+    name,
+    description,
+    url,
+    price, ->sum(ingredients) + 20 % beneficios
+    ingredients:[{id,name,cost}]
+}
+
+/pizza
+
+Buenas practicas en las url
+    1. La url debe de estar pluralizada /pizzas
+    2. La url no debe de exponer acciones
+        /pizzas/add(NO)
+        /pizzas->POST(OK)
+    3. La url no debe de exponer formatos
+        /pizzas.json(NO)
+        /pizzas.xml(NO)
+
+        /pizzas
+
+        accept  :appliation/json | aplication/xml
+        content-type
+
+1. crear
+    path:/pizzas
+    verbo:POST
+    request:
+        {}
+        headers:
+            content-type:'application/json
+    response:
+        {id,price,....}
+            content-type:'application/json'
+
+    OK                  ERROR
+    201                 400
+                        401
+                        403->No autorizado->404
+                        405
+                        415
+                        500
+
+2. update
+    path:/pizzas/:id
+    verbo:PUT | PATCH
+    request:
+        {}
+        headers:
+            content-type:'application/json
+    response:
+        {id,price,....}
+            content-type:'application/json'
+
+    OK                  ERROR
+    200                 404
+    204                 400
+                        401
+                        403->No autorizado->404
+                        405
+                        415
+                        500
+
+3. remove
+    path:/pizzas/:id
+    verbo:DELETE
+    request:
+        
+    response:
+        
+
+    OK                  ERROR
+                        404
+    204                 400
+                        401
+                        403->No autorizado->404
+                        405
+                        415
+                        500
+3. get
+    path:/pizzas/:id
+    verbo:GET
+    request: EL VERBO GET NO SOPORTA BODY EN EL REQUEST
+        
+    response:
+        {}
+
+    OK                  ERROR
+    200                 404
+                        400
+                        401
+                        403->No autorizado->404
+                        405
+                        415
+                        500
+3. get(collection)
+    path:/pizzas
+    verbo:GET
+    request: EL VERBO GET NO SOPORTA BODY EN EL REQUEST
+        
+    response:
+        [{}] | []
+
+    OK                  ERROR
+    200                 400
+                        401
+                        403->No autorizado->404
+                        405
+                        415
+                        500
+
+    QueryString
+    name=car&page=1&size=25
+
+
+    Proyecciones
+
+    select * from tabla
+    select id,name,price from tabla
+
+    attributes=id,name,price(SI)
+
+    https://www.odata.org/
+    https://olingo.apache.org/
+    https://graphql.org/
+    
