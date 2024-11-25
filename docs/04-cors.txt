@@ -1,0 +1,45 @@
+CORS
+
+Fetch/Xhr
+
+Fetch->Fetch api
+Xhr-> XmlHttpReqest
+
+Xss->Injeccion de codigo js
+
+Es no descargar de un servidor distinto a tu dominio posible código malicioso
+
+Origen->http://locahost:8080
+
+//api rest
+const response = await fetch("http://localhost:8081")
+const text = await response.text()
+
+const url = createObjectUrl(text)
+const script = document.createElement('script')
+script.src=url
+document.head.appendChild(script)
+
+Que se ejecuta el código malicioso que llega desde el 8081
+
+Request
+    Origin:http://localhost:8080
+Response    
+    https://www.w3.org/TR/2020/SPSD-cors-20200602/
+
+    Access-Control-Allow-Origin : http://localhost:8080 | *
+
+    * Significa que el servidor autoriza la lectura a todo el mundo
+    dominio0->White List []
+
+    *->No permite autenticacion basada en cookie->token
+
+    Access-Control-Allow-Credentials:true
+
+    Access-Control-Max-Age
+
+    GET,POST,PUT,DELETE,HEAD,PATCH
+
+    OPTIONS->ANTES QUE LOS VERBOS ANTERIORS(2)
+
+    https://developer.mozilla.org/en-US/docs/Glossary/Preflight_request

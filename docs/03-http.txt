@@ -1,0 +1,15 @@
+1. Servicios->Server->Datos
+
+-¿Formas de hacerlo?
+    Rest->
+
+¿Como hago las llamadas rest y que tengo que tener en cuenta?
+    -axios
+    -fetch api
+¿Alquien sabe lo que es CORS?
+    Web
+
+    Intercambio de recursos entre dominios distintos
+
+    ¿Por qué?
+       

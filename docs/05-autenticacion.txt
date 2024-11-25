@@ -1,0 +1,41 @@
+¿Cookie?
+    La cookie de sesión como la debe de emitir el servidor?
+    HttpOnly(no es accesible desde document.cookie),Secure(https)
+¿Token?
+
+    const parts = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c".split('.')
+
+    atob(parts[0])->codificaciones en base64
+    atob(parts[1])->codificaciones en base64
+
+    la secret debe de estar en el servidor->bien guardada
+
+    ¿Cuanto debe de durar un token?
+
+    3600->1hora
+
+    /refresh->refrescar el token
+
+    El token es valido->mobil,server to server, web
+
+    ¿Donde guardarias el token?
+
+    LocalStorage
+
+    1. Api sincrona
+    2. Serializacion y deserialización en cada acceso
+    3. No es accesible desde los workers
+
+    IndexDb
+
+    1. Api Asincrona
+    2. No requiere serializar y deserializar a string
+    3. Accesible desde el hilo principal y los workers
+
+    Como protejo el token
+
+    https://www.w3.org/TR/CSP3/
+
+    ¿Como envio el token en cada request?
+
+    Authorization: Bearer xxxx.yyyy.zzzz
