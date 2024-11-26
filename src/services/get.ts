@@ -1,5 +1,6 @@
 import axios from "axios";
 export async function Get<T>(url: string): Promise<T> {
+    //https://axios-http.com/docs/interceptors
     const response = await axios.get<T>(url)
     if (response.status === 200) {
         return response.data;
