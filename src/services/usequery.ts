@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { Get } from "./get";
+import { Get, GetFetch } from "./get";
 
 export async function useQuery<T>(url: string) {
     const data = ref<T>()
@@ -7,7 +7,7 @@ export async function useQuery<T>(url: string) {
     const error = ref("")
     try {
 
-        data.value = await Get<T>(url)
+        data.value = await GetFetch<T>(url)
     }
     catch (err) {
         error.value = err as string;
