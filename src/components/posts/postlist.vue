@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useQueryAll } from '@/services/usequery';
+import { useQuery } from '@/services/usequery';
 import type { Post } from './Post';
 import { watch } from 'vue';
 
@@ -10,15 +10,15 @@ const props =defineProps<{
 }>() 
 
 
-const {data,loading,error} = await useQueryAll<Post>(props.url)
+const {data,loading,error} = await useQuery<Post>(props.url)
 
 
 /*
     ({url})=>{} //desectructuracion
-    const {...rest} =  await useQueryAll<Post>(url)->desectructuracion 
+    const {...rest} =  await useQueryAll<[Post]>(url)->desectructuracion 
 */
 watch(props,async ({url})=>{
-   const {...rest} =  await useQueryAll<Post>(url)
+   const {...rest} =  await useQuery<Post>(url)
 
    data.value = rest.data.value
    loading.value = rest.loading.value
@@ -31,8 +31,15 @@ watch(props,async ({url})=>{
         <div>{{props.url}}</div>
         <div v-if="loading">Loading...</div>
         <div v-else-if="error">{{ error }}</div>
-        <div v-else v-for="item in data" :key="item.id">
-            <div>{{ item.id }}</div>
-            <div>{{ item.title }}</div>
-        </div>   
+        <!--
+            <div v-else v-for="item in data" :key="item.id">
+                <div>{{ item.id }}</div>
+                <div>{{ item.title }}</div>
+            </div>   
+        -->
+        <div>
+            {{data?.id }}
+            {{data?.title }}
+        </div>
+        
 </template>

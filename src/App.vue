@@ -9,14 +9,14 @@ import './webcomponent'
 import Postlist from './components/posts/postlist.vue';
 
 
-const url = ref("https://my-json-server.typicode.com/typicode/demo/posts")
+const url = ref("https://my-json-server.typicode.com/typicode/demo/posts/1")
 const dialog = ref();
 
 const name = "Pedro"
 const user = undefined
 const data = ref([1, 2, 3, 4, 5, 6])
 function changeUrl() {
-  url.value = "https://my-json-server.typicode.com/typicode/demo/posts?id=1"
+  url.value = "https://my-json-server.typicode.com/typicode/demo/posts/2"
 }
 function handlerClick() {
   const oldValue = data.value;

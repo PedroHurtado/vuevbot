@@ -1,13 +1,13 @@
 import { ref } from "vue";
-import { GetAll } from "./getAll";
+import { Get } from "./get";
 
-export async function useQueryAll<T>(url: string) {
-    const data = ref<[T]>()
+export async function useQuery<T>(url: string) {
+    const data = ref<T>()
     const loading = ref(true)
     const error = ref("")
     try {
 
-        data.value = await GetAll<T>(url)
+        data.value = await Get<T>(url)
     }
     catch (err) {
         error.value = err as string;
