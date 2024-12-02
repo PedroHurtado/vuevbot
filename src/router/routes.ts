@@ -4,6 +4,7 @@ import {createRouter,createWebHistory} from 'vue-router'
 //https://web.dev/articles/http-cache?hl=es-419
 //https://web.dev/articles/bfcache?utm_source=devtools&hl=es-419
 //https://router.vuejs.org/guide/advanced/lazy-loading.html
+//https://router.vuejs.org/guide/advanced/navigation-guards.html
 //Que pasa si tengo 1000 páginas
 export const router = createRouter({
     history: createWebHistory(),
@@ -13,4 +14,9 @@ export const router = createRouter({
        {path:"/pagina3", component:()=>import('@/components/pages/page3.vue')},
        {path:"/:catchAll(.*)", component:Notfound}
     ]
+    
 });
+router.beforeEach((to,from)=>{
+    console.log(to)
+    console.log(from)
+})
