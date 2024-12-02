@@ -1,0 +1,48 @@
+1. Tipo de aplicaciones
+    SPA(Single page application) (x)
+        index.html
+        Metainformacion
+        router =[
+            {path:"/page1" component:Pagina1}
+        ]
+        <router-link to="/page1">
+            <a href="/page1>
+        a.addEventListener('click', (ev)=>{
+            ev.preventDefault()
+            //buscan la ruta en el router
+            window.history.pushState()
+
+            https://developer.mozilla.org/en-US/docs/Web/API/Window/popstate_event
+        })
+        <router-view></router-view>
+
+        1. Metainformacion
+        2. Link
+        3. View
+
+        Pros
+            disminulles el tiempo de peticiones
+            mejor usabilidad
+        Contras
+            Tiempo de carga inicial
+            SEO
+            Mas lento(peor experiencia de usuario)
+            Problemas de memoria
+
+    MPA(Multy page application)
+        pros
+            Mas rapido
+            Menos problemas de memoria
+            SEO
+        constras
+            Sobrecarga del servidor, sino tengo una cache eficiente
+        SSR(Server side rendering)
+        SSG(Server static generation)->compilacion->generate static page
+    PWA(Progresive web app)(2 threads)
+        Cargas los recursos necesarios para representar tu applicacion
+        ServiceWorker->cliente(2 peticiones)
+            1. servir la página
+            2. install en el ServiceWorker
+            install
+            activate
+            fetch

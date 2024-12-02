@@ -7,6 +7,7 @@ import type { Pizza } from './components/carrito/pizza';
 import { PubSub } from '@/services/pubsub';
 import './webcomponent'
 import Postlist from './components/posts/postlist.vue';
+import Layout from './components/pages/layout.vue';
 
 
 const url = ref("https://my-json-server.typicode.com/typicode/demo/posts/1")
@@ -45,7 +46,7 @@ function showDialog() {
 </script>
 
 <template>
-
+  <Layout/>
   <div>
     <button @click="changeUrl">Pagina1</button>
   </div>
