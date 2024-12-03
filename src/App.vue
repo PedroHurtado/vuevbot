@@ -9,6 +9,7 @@ import './webcomponent'
 import Postlist from './components/posts/postlist.vue';
 import Layout from './components/pages/layout.vue';
 import Counter from './components/pinia/counter.vue';
+import Form from './components/customImput/Form.vue';
 
 
 const url = ref("https://my-json-server.typicode.com/typicode/demo/posts/1")
@@ -40,6 +41,7 @@ const dialogs = {
 
 }
 function showDialog() {
+  
   dialog.value.showModal()
   //cambiar el ref
   //activeDialog.value = ''
@@ -47,6 +49,7 @@ function showDialog() {
 </script>
 
 <template>
+  <Form/>
   <div class="counter">
     <Counter position="left"/>
     <Counter position="right"/>
