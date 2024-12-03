@@ -8,6 +8,7 @@ import { PubSub } from '@/services/pubsub';
 import './webcomponent'
 import Postlist from './components/posts/postlist.vue';
 import Layout from './components/pages/layout.vue';
+import Counter from './components/pinia/counter.vue';
 
 
 const url = ref("https://my-json-server.typicode.com/typicode/demo/posts/1")
@@ -46,6 +47,11 @@ function showDialog() {
 </script>
 
 <template>
+  <div class="counter">
+    <Counter position="left"/>
+    <Counter position="right"/>
+  </div>
+  
   <Layout/>
   <div>
     <button @click="changeUrl">Pagina1</button>
@@ -107,3 +113,10 @@ function showDialog() {
 
 
 </template>
+
+<style scoped>
+.counter{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+</style>
